@@ -3,6 +3,8 @@ layout: page
 title: Boat building
 excerpt: "a long history of an insane project...that turned out ok."
 search_omit: true
+image:
+  feature: "DSC_3073.jpg"
 ---
 
 <ul class="post-list">

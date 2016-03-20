@@ -3,6 +3,9 @@ layout: page
 title: From motor boat to sail boat through Lake Michigan and Lake Superior
 excerpt: ""
 search_omit: true
+image:
+  feature: "2015-07-16 14.03.21.jpg"
+  
 ---
 
 <ul class="post-list">

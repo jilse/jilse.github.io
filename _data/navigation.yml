@@ -1,6 +1,6 @@
 # Site navigation links
 
-- title: Current
+- title: Today
   url: /
 
 - title: 2014 River
@@ -10,7 +10,7 @@
   url: /2015-Lake-Michigan-to-lake-Superior/
 
 - title: Boat building
-  url: /boat-building/
+  url: /boatbuilding/
 
 - title: Search
   url: /search/

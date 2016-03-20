@@ -4,7 +4,7 @@ title: "St. Paul to Muskegon MI on the Mississippi and Illinois Rivers"
 excerpt: "a race to leave town before the snow hit."
 search_omit: true
 image:
-  feature: "2014-09-24 17.18.36.jpg" 
+  feature: "IMG_20140917_125043.jpg" 
 ---
 
 <ul class="post-list">
