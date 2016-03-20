@@ -6,7 +6,7 @@ description: Living the warm months aboard a self built sailing catamaran
 imagehost: http://www.ilseus.net/blog
 logo: site-logo.jpg
 search: true
-url: http://localhost:4000
+url: http://127.0.0.1:4000
 
 # Jekyll configuration
 
