@@ -3,7 +3,7 @@ author: jeff_ilse
 layout: post
 title: "getting the mast up"
 modified:
-categories: 2015-MichiganToMinnesota
+categories: boatbuilding
 excerpt: "it was one of the more stressful projects, but I finally became a sailboat."
 tags: []
 image:
