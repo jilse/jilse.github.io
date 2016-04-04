@@ -16,15 +16,15 @@ a big pile of core-cell. The guts of the hull foam sandwich.
 ![]({{ site.imagehost }}/hullbuild/26.jpg)
 
 and then some temporary frames from 3/4 particle board
-![mast]({{ site.imagehost }}/hullbuild/23.jpg)
+![]({{ site.imagehost }}/hullbuild/23.jpg)
 
-![mast]({{ site.imagehost }}/hullbuild/24.jpg)
+![]({{ site.imagehost }}/hullbuild/24.jpg)
 
 Apply core-cell
-![mast]({{ site.imagehost }}/hullbuild/9.jpg)
+![]({{ site.imagehost }}/hullbuild/9.jpg)
 
 glass interior and bring the halves together 
-![mast]({{ site.imagehost }}/hullbuild/IMG_6090.jpg)
+![]({{ site.imagehost }}/hullbuild/IMG_6090.jpg)
 
 fit interior bulkheads while the hull was on its side for easier access
 ![]({{ site.imagehost }}/hullbuild/DSC_1571.jpg)
@@ -33,11 +33,11 @@ flip hulls upside down
 <iframe width="560" height="315" src="http://www.youtube.com/embed/ww1XYk-Ql9Q" frameborder="0"> </iframe>
 
 and glassed the outside, sanded, flipped, painted.
-![mast]({{ site.imagehost }}/hullbuild/DSC_3148.jpg)
+![]({{ site.imagehost }}/hullbuild/DSC_3148.jpg)
 
 This is my uncle John and one of his big machines gently setting a hull onto a trailer. I'm still amazed how perfectly the whole thing fit together and he welded it up in an afternoon. pro.
-![mast]({{ site.imagehost }}/hullbuild/DSC_3179.jpg)
+![]({{ site.imagehost }}/hullbuild/DSC_3179.jpg)
 
 The hulls themselves don't weigh much, and I had no problems towing them with his minivan. The truck was fine, but my nerves were on edge the whole trip.
-![mast]({{ site.imagehost }}/hullbuild/IMAG0211.jpg)
+![]({{ site.imagehost }}/hullbuild/IMAG0211.jpg)
 
