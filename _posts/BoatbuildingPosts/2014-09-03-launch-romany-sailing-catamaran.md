@@ -22,3 +22,6 @@ date: 2014-09-03
 ![]({{ site.imagehost }}/launch/IMG_2174.JPG)
 
 ![]({{ site.imagehost }}/launch/IMG_2178.JPG)
+
+![]({{ site.imagehost }}/launch/2014-09-06 10.31.39.jpg)
+

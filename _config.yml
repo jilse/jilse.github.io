@@ -11,7 +11,9 @@ url: http://127.0.0.1:4000
 # Jekyll configuration
 
 permalink:   /:categories/:title/
-markdown:    kramdown
+markdown: redcarpet
+redcarpet:
+  extensions: ["strikethrough"]
 highlighter: rouge
 sass:
   sass_dir: _sass
