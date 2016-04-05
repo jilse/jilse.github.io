@@ -57,6 +57,13 @@ once it was lifted and lined up, I built a more solid frame so it would be still
 
 -----
 
+I was waiting to take this picture since I moved the hulls to the marina. In order install the keels, I had to jack the boat up and I finally had enough vertical clearance to park! 
+![]({{ site.imagehost }}/finalbuild/2013-09-02 16.12.31.jpg)
+
+
+
+-----
+
 I was nearly finished, but the weather wasn't finished trying to stop me. The river rose 22' and shut down the marina. They had to move all the other dry storage boats, but I didn't want to deal with relocating so I took a chance. The water came within 3 inches of floating me, but it peaked and then slowly receded. It was an exciting adventure, but a terrible distraction. The power was off for weeks and I had to row to the boat to get any work done. I was determined not to be stopped, so I bought a portable generator and kept going. It felt good to have water surrounding me again and I started to see the end in sight. We even slept aboard for 3 nights while the river crested in case we floated in the night. We could feel one hull trying to lift.
 
 ![]({{ site.imagehost }}/finalbuild/2014-06-24 07.36.49.jpg)
