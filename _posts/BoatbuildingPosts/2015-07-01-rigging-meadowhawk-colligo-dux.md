@@ -45,7 +45,7 @@ Big pile o running rigging. Spliced by yours truly.
 
 -------
 
-Standing rigging and hardware from Colligo Dux. I did the splicing.
+Standing rigging and hardware from Colligo Marine. I did the splicing.
 ![standing rigging]({{ site.imagehost }}/riggingpost/2015-06-17 15.20.05.jpg)
 
 ![eye splice]({{ site.imagehost }}/riggingpost/2015-06-19 00.38.09.jpg)
