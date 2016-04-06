@@ -25,7 +25,7 @@ For the short version, here is a list of legs I sailed from Muskegon MI ultimate
   12. Grand Marais, MI **July, 27**
   13. Munising, MI Pictured Rocks National lake shore and Grand Island **July, 28**
   14. Copper Harbor, MI **Aug, 1**
-  15. Grand Marais, MI **Aug, 6**
+  15. Grand Marais, MN **Aug, 6**
   16. Cruising around Bayfiled and the Apostle Islands National Lakeshore
   17. Duluth, MN
   18. Grand Marais, MN
