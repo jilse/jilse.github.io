@@ -84,5 +84,5 @@ On the shores of Lake Michigan
 
 ----
 
-Offically done for the season. The staff at Torresen Marine was top notch. They pulled over with the crane and 30 minutes later, we were ashore. We left St. Paul on September 15th. 1100 miles later this was taken on October 23rd. We made it!
+Offically done for the season. The staff at Torresen Marine was top notch. They pulled over with the crane and we were ashore 30 minutes later. We left St. Paul on September 15th. 1100 miles later this was taken on October 23rd. We made it!
 ![]({{ site.imagehost }}/2014river/2014-10-23 10.19.33.jpg)

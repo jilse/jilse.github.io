@@ -1,13 +1,13 @@
 # Site navigation links
 
-- title: Today
+- title: Latest
   url: /
-
-- title: 2014 River
-  url: /2014-Upper-Mississippi-Illinois-River-Lake-Michigan/
 
 - title: 2015 Great Lakes
   url: /2015-Lake-Michigan-to-lake-Superior/
+
+- title: 2014 River
+  url: /2014-Upper-Mississippi-Illinois-River-Lake-Michigan/
 
 - title: Boat building
   url: /boatbuilding-Richard-Woods-Romany-Catamaran/
