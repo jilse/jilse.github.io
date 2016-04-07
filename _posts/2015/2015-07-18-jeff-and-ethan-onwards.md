@@ -54,7 +54,7 @@ Every stop was my favorite stop, but this really was. The Whitefish point harbor
 
 -----
 
-The Edmund Fitzgerald rests on the bottom near here. The bell was recovered and brought to the museum. A replica with all the names of the lost sailors was returned to the wreck and put in its place. 
+The Edmund Fitzgerald rests on the bottom near here. The bell was recovered and brought to the museum. A replica etched with the names of the lost sailors was returned to the wreck, at the bottom of the lake, and put in its place. 
 ![2015]({{ site.imagehost }}/2015greatlakes/2015-07-26 15.34.21.jpg)
 
 -----

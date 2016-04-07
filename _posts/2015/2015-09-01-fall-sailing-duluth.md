@@ -18,16 +18,30 @@ After the summer fun in August, the weather turned to fall, but the sailing was 
 
 ![2015]({{ site.imagehost }}/2015greatlakes/2015-09-17 18.43.32.jpg)
 
+-----
+
+Leaving the Superior, WI entry en route to Isle Royale
 ![2015]({{ site.imagehost }}/2015greatlakes/2015-09-17 18.54.50.jpg)
 
+------
+
+Rock Of Ages Lighthouse Lake Superior
 ![2015]({{ site.imagehost }}/2015greatlakes/2015-09-22 16.31.02.jpg)
 
+-----
+
+Crew atop an overlook on Isle Royle
 ![2015]({{ site.imagehost }}/2015greatlakes/2015-09-23 12.33.36.jpg)
 
+-----
+
+We hiked out of Windigo ranger station for a few days.
 ![2015]({{ site.imagehost }}/2015greatlakes/2015-09-23 17.10.32.jpg)
 
 ![2015]({{ site.imagehost }}/2015greatlakes/2015-09-23 18.05.51.jpg)
 
+-----
+View of Washington harbor just before we sailed off to take advantage of the NE winds to push us back to duluth.  
 ![2015]({{ site.imagehost }}/2015greatlakes/2015-09-24 06.58.55.jpg)
 
 -----

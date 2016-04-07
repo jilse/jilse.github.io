@@ -27,7 +27,7 @@ I did eventually get everything I needed and after months of planning and beggin
 -----
 
 Martingale stay bracket (1of2) made by John Koon @ Tradewinds Marine Services 
-![Martingale stay bracket]({{ site.imagehost }}/riggingpost/2015-06-03 11.31.30.jpg "Martingale stay bracket")
+![]({{ site.imagehost }}/riggingpost/2015-07-02 17.58.41.jpg)
 
 ------
 
@@ -52,7 +52,7 @@ Standing rigging and hardware from Colligo Marine. I did the splicing.
 
 ---------
 
-A ceramic knife is required to cut it, because it is so hard.
+A ceramic knife is required to cut it, because it is so tough.
 ![ceramic knife]({{ site.imagehost }}/riggingpost/2015-06-19 00.44.34.jpg)
 
 --------
