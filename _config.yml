@@ -11,9 +11,7 @@ url: http://jilse.github.io
 # Jekyll configuration
 
 permalink:   /:categories/:title/
-markdown: redcarpet
-redcarpet:
-  extensions: ["strikethrough"]
+markdown: kramdown
 highlighter: rouge
 sass:
   sass_dir: _sass
