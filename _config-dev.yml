@@ -1,1 +1,24 @@
 url: http://127.0.0.1:4000
+# Site owner
+owner:
+  name: Jeff Ilse dev
+  avatar: jeff-photo.jpg
+  email: you@email.com
+  disqus-shortname:
+  twitter: svmeadowhawk
+  facebook: jeffilse
+  github: #username
+  stackexchange: #http://stackoverflow.com/users/123456/username
+  linkedin: #username
+  instagram: #username
+  flickr: #username
+  tumblr: #username
+  pinterest: #username
+  weibo: #userid
+  google:
+    plus: #username
+    analytics: not
+    verify:
+    ad-client:
+    ad-slot:
+  bing-verify:
