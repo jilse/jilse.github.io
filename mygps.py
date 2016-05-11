@@ -3,18 +3,20 @@ import time
 import json
 import RPi.GPIO as GPIO
 import os
-GPIO.setmode(GPIO.BOARD)
-GPIO.setup(7,GPIO.OUT)
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(4,GPIO.OUT)
+GPIO.output(4,False)
+GPIO.setup(18, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
-def writemdfile(lat, lon):
-	targetfile = open("_posts/SailTracks/"+time.strftime("%Y-%m-%d-Sailtrack-") + timestr+".md", 'w')
+def writemdfile(lat, lon, fileitme):
+	targetfile = open("_posts/SailTracks/"+time.strftime("%Y-%m-%d-Sailtrack-") + fileitme+".md", 'w')
 	targetfile.write("---\n")
 	targetfile.write("layout: track\n")
-	targetfile.write("title: sail track "+ timestr +"\n")
+	targetfile.write("title: sail track "+ fileitme +"\n")
 	targetfile.write("categories: sailtrack\n")
 	targetfile.write("date: " + time.strftime("%Y-%m-%d") + "\n")
 	targetfile.write("published: false\n")
-	targetfile.write("geo: " + timestr + ".json\n")
+	targetfile.write("geo: " + fileitme + ".json\n")
 	targetfile.write("geocenterlon: "+ str(lon) +"\n")
 	targetfile.write("geocenterlat: "+ str(lat) +"\n")
 	targetfile.write("mapzoom: 11\n")
@@ -23,23 +25,43 @@ def writemdfile(lat, lon):
 	targetfile.close()
 	return
 def blink(wait):
-	GPIO.output(7,True)
+	GPIO.output(4,True)
 	time.sleep(wait)
-	GPIO.output(7,False)
+	GPIO.output(4,False)
 	time.sleep(wait)
 	return
 
-timestr = time.strftime("%Y-%m-%d-%H.%M.%S")
+timestr = ""
 session = gps.gps("localhost", "2947")
 session.stream(gps.WATCH_ENABLE | gps.WATCH_NEWSTYLE)
 firstrun = True
 lasttime = ""
 firsttime = ""
-cachefilepath = "sailtrack/" + timestr + "-cache.json"
-cachefile = open(cachefilepath, 'w', 1)
+cachefilepath = ""
 
+started = False
 while True:
+	start_button_up = GPIO.input(18)
+	if started == False and start_button_up == True:
+		time.sleep(0.2)
+		continue
+	
+	print "started: " + str(started)
+	if started == False:
+		# wait for button release
+		start_button_up = GPIO.input(18)
+		while start_button_up == False:
+			blink(.25)
+			start_button_up = GPIO.input(18)
+			
+		timestr = time.strftime("%Y-%m-%d-%H.%M.%S")
+		cachefilepath = "sailtrack/" + timestr + "-cache.json"
+		cachefile = open(cachefilepath, 'w', 1)
+		cachefilepath = "sailtrack/" + timestr + "-cache.json"
+		started = True
+		firstrun = True
 	try:
+		print "running"
 		report = session.next()
 		# Wait for a 'TPV' report and display the current time
 		if report['class'] == 'TPV':
@@ -47,7 +69,7 @@ while True:
 				lasttime = report.time
 				if firstrun == True:
 					firsttime = report.time
-					writemdfile(report.lat, report.lon)
+					writemdfile(report.lat, report.lon, timestr)
 					firstrun = False
 					
 				cachefile.write(str(report.lon) + ",")
@@ -60,26 +82,35 @@ while True:
 	except StopIteration:
 		session = None		
 
-cachefile.flush()
-cachefile.close()
-datafile = open("sailtrack/" + timestr + ".json", 'w', 500)
-f = open("sailtracktemplate.json", 'r')
-json_data = f.read()
-f.close()
-basetemplate = "{\"type\": \"FeatureCollection\",\"features\": ["+ json_data +"]}"
-jd = json.loads(basetemplate)
-cachereader = open(cachefilepath, 'r').read().splitlines()
+	start_button_up = GPIO.input(18)
+	closetrack = start_button_up == False
+	
+	while start_button_up == False:
+			blink(.25)
+			start_button_up = GPIO.input(18)
+	if closetrack == True:		
+		cachefile.flush()
+		cachefile.close()
+		datafile = open("sailtrack/" + timestr + ".json", 'w', 500)
+		f = open("sailtracktemplate.json", 'r')
+		json_data = f.read()
+		f.close()
+		basetemplate = "{\"type\": \"FeatureCollection\",\"features\": ["+ json_data +"]}"
+		jd = json.loads(basetemplate)
+		cachereader = open(cachefilepath, 'r').read().splitlines()
 
-for line in cachereader:
-	print "0: " + line.split(",")[0] + "\n"
-	print "1: " + line.split(",")[1] + "\n"
-	jd["features"][0]["geometry"]["coordinates"].append([float(line.split(",")[0]),float(line.split(",")[1])])
-jd["features"][0]["properties"]["powertype"] = "sail"
-jd["features"][0]["properties"]["start"] = firsttime
-jd["features"][0]["properties"]["end"] = lasttime
+		for line in cachereader:
+			print "0: " + line.split(",")[0] + "\n"
+			print "1: " + line.split(",")[1] + "\n"
+			jd["features"][0]["geometry"]["coordinates"].append([float(line.split(",")[0]),float(line.split(",")[1])])
+		jd["features"][0]["properties"]["powertype"] = "sail"
+		jd["features"][0]["properties"]["start"] = firsttime
+		jd["features"][0]["properties"]["end"] = lasttime
 
-datafile.write(json.dumps(jd, indent=4))
-datafile.flush()
-datafile.close()
+		datafile.write(json.dumps(jd, indent=4))
+		datafile.flush()
+		datafile.close()
+		os.remove(cachefilepath)
+		started = False
 GPIO.cleanup()
-os.remove(cachefilepath)
+
