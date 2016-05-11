@@ -8,8 +8,8 @@ GPIO.setup(7,GPIO.OUT)
 
 def writemdfile(lat, lon):
 	targetfile = open("_posts/SailTracks/"+time.strftime("%Y-%m-%d-Sailtrack-") + timestr+".md", 'w')
-	targetfile.write("---\r")
-	targetfile.write("layout: track\r")
+	targetfile.write("---\n")
+	targetfile.write("layout: track\n")
 	targetfile.write("title: sail track "+ timestr +"\n")
 	targetfile.write("categories: sailtrack\n")
 	targetfile.write("date: " + time.strftime("%Y-%m-%d") + "\n")
@@ -71,8 +71,8 @@ jd = json.loads(basetemplate)
 cachereader = open(cachefilepath, 'r').read().splitlines()
 
 for line in cachereader:
-	print "0: " + line.split(",")[0] + "\r"
-	print "1: " + line.split(",")[1] + "\r"
+	print "0: " + line.split(",")[0] + "\n"
+	print "1: " + line.split(",")[1] + "\n"
 	jd["features"][0]["geometry"]["coordinates"].append([line.split(",")[0],line.split(",")[1]])
 jd["features"][0]["properties"]["powertype"] = "sail"
 jd["features"][0]["properties"]["start"] = firsttime
