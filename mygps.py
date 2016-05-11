@@ -7,9 +7,10 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setup(4,GPIO.OUT)
 GPIO.output(4,False)
 GPIO.setup(18, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+repopath= "/home/pi/gitrepo/jilse.github.io/"
 
 def writemdfile(lat, lon, fileitme):
-	targetfile = open("_posts/SailTracks/"+time.strftime("%Y-%m-%d-Sailtrack-") + fileitme+".md", 'w')
+	targetfile = open(repopath + "_posts/SailTracks/"+time.strftime("%Y-%m-%d-Sailtrack-") + fileitme+".md", 'w')
 	targetfile.write("---\n")
 	targetfile.write("layout: track\n")
 	targetfile.write("title: sail track "+ fileitme +"\n")
@@ -46,7 +47,6 @@ while True:
 		time.sleep(0.2)
 		continue
 	
-	print "started: " + str(started)
 	if started == False:
 		# wait for button release
 		start_button_up = GPIO.input(18)
@@ -55,13 +55,11 @@ while True:
 			start_button_up = GPIO.input(18)
 			
 		timestr = time.strftime("%Y-%m-%d-%H.%M.%S")
-		cachefilepath = "sailtrack/" + timestr + "-cache.json"
+		cachefilepath = repopath + "sailtrack/" + timestr + "-cache.json"
 		cachefile = open(cachefilepath, 'w', 1)
-		cachefilepath = "sailtrack/" + timestr + "-cache.json"
 		started = True
 		firstrun = True
 	try:
-		print "running"
 		report = session.next()
 		# Wait for a 'TPV' report and display the current time
 		if report['class'] == 'TPV':
@@ -91,8 +89,8 @@ while True:
 	if closetrack == True:		
 		cachefile.flush()
 		cachefile.close()
-		datafile = open("sailtrack/" + timestr + ".json", 'w', 500)
-		f = open("sailtracktemplate.json", 'r')
+		datafile = open(repopath + "sailtrack/" + timestr + ".json", 'w', 500)
+		f = open(repopath + "sailtracktemplate.json", 'r')
 		json_data = f.read()
 		f.close()
 		basetemplate = "{\"type\": \"FeatureCollection\",\"features\": ["+ json_data +"]}"
@@ -100,8 +98,6 @@ while True:
 		cachereader = open(cachefilepath, 'r').read().splitlines()
 
 		for line in cachereader:
-			print "0: " + line.split(",")[0] + "\n"
-			print "1: " + line.split(",")[1] + "\n"
 			jd["features"][0]["geometry"]["coordinates"].append([float(line.split(",")[0]),float(line.split(",")[1])])
 		jd["features"][0]["properties"]["powertype"] = "sail"
 		jd["features"][0]["properties"]["start"] = firsttime
