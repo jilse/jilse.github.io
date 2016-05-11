@@ -73,7 +73,7 @@ cachereader = open(cachefilepath, 'r').read().splitlines()
 for line in cachereader:
 	print "0: " + line.split(",")[0] + "\n"
 	print "1: " + line.split(",")[1] + "\n"
-	jd["features"][0]["geometry"]["coordinates"].append([line.split(",")[0],line.split(",")[1]])
+	jd["features"][0]["geometry"]["coordinates"].append([float(line.split(",")[0]),float(line.split(",")[1])])
 jd["features"][0]["properties"]["powertype"] = "sail"
 jd["features"][0]["properties"]["start"] = firsttime
 jd["features"][0]["properties"]["end"] = lasttime
