@@ -29,7 +29,7 @@ def blink(wait):
 	time.sleep(wait)
 	return
 
-timestr = time.strftime("%Y-%m-%d-%H:%M:%S")
+timestr = time.strftime("%Y-%m-%d-%H.%M.%S")
 session = gps.gps("localhost", "2947")
 session.stream(gps.WATCH_ENABLE | gps.WATCH_NEWSTYLE)
 firstrun = True
