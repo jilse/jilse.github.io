@@ -15,10 +15,10 @@ def writemdfile(lat, lon):
 	targetfile.write("date: " + time.strftime("%Y-%m-%d") + "\n")
 	targetfile.write("published: false\n")
 	targetfile.write("geo: " + timestr + ".json\n")
-	targetfile.write("geocenterlon:"+ str(lat) +"\n")
-	targetfile.write("geocenterlat:"+ str(lon) +"\n")
+	targetfile.write("geocenterlon: "+ str(lat) +"\n")
+	targetfile.write("geocenterlat: "+ str(lon) +"\n")
 	targetfile.write("mapzoom: 11\n")
-	targetfile.write("---\r\r")
+	targetfile.write("---\n\n")
 	targetfile.flush()
 	targetfile.close()
 	return
