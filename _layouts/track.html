@@ -41,6 +41,16 @@
 
 
 <script>
+	hoursBetween = function( date1, date2 ) {
+		var one_hour=1000*60*60;
+		// Convert both dates to milliseconds
+		var date1_ms = date1.getTime();
+		var date2_ms = date2.getTime();
+		// Calculate the difference in milliseconds
+		var difference_ms = date2_ms - date1_ms;
+		// Convert back to hours and return
+		return (difference_ms/one_hour).toFixed(2);
+	}
 	function initMap() {
 		var mapDiv = document.getElementById('map');
 		var map = new google.maps.Map(mapDiv, {
@@ -48,9 +58,45 @@
 			zoom: {{ page.mapzoom }}
 		});
 		map.data.loadGeoJson('{{ site.url }}/sailtrack/{{ page.geo }}');
+		map.data.setStyle(function(feature) {
+			var color = 'black';
+			if (feature.getProperty('powertype')== "sail") {
+				color = "red";
+			}
+			return /** @type {google.maps.Data.StyleOptions} */({
+				fillColor: color,
+				strokeColor: color,
+				strokeWeight: 2
+			});
+		});
+		map.data.addListener('mouseover', function(event) {
+			map.data.revertStyle();
+			map.data.overrideStyle(event.feature, {strokeWeight: 8});
+		});
+		map.data.addListener('mouseout', function(event) {
+			map.data.revertStyle();
+		});
+		map.data.addListener('click', function(event){
+			var miles = (google.maps.geometry.spherical.computeLength(event.feature.getGeometry().getArray())* 0.000539957).toFixed(2);
+			var start = new Date(event.feature.getProperty('start'));
+			var end = new Date(event.feature.getProperty('end'));
+
+			var power = event.feature.getProperty('powertype');
+			var infowindow = new google.maps.InfoWindow({
+				content: 'power: ' + power + '<br>'
+						+ 'nautical miles: ' + miles + '<br>'
+						+ 'start: ' + start + '<br>'
+						+ 'end: ' + end + '<br>'
+						+ 'hours: ' + hoursBetween(start, end) + '<br>'
+						+ 'average nm/hour: ' + (miles / hoursBetween(start, end)).toFixed(2)
+
+			});
+			infowindow.setPosition({lat: event.latLng.lat(), lng: event.latLng.lng()});
+			infowindow.open(map);
+		});
 	}
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?callback=initMap"
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAMBODwxj1IeOT3xuCKn9k9l9-gQ5VW0Oo&callback=initMap"
 		async defer></script>
 
 
