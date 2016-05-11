@@ -41,10 +41,17 @@ firsttime = ""
 cachefilepath = ""
 
 started = False
+pausecount = 0
 while True:
+	
 	start_button_up = GPIO.input(18)
 	if started == False and start_button_up == True:
-		time.sleep(0.2)
+		pausecount+=1
+		if(pausecount == 20):
+			pausecount = 0
+			blink(0.1)
+		else:
+			time.sleep(0.2)
 		continue
 	
 	if started == False:
@@ -70,8 +77,8 @@ while True:
 					writemdfile(report.lat, report.lon, timestr)
 					firstrun = False
 					
-				cachefile.write(str(report.lon) + ",")
-				cachefile.write(str(report.lat) + "\n")
+				cachefile.write(str(round(report.lon, 5)) + ",")
+				cachefile.write(str(round(report.lat, 5)) + "\n")
 				blink(1)
 	except KeyError:
 		pass
@@ -103,7 +110,7 @@ while True:
 		jd["features"][0]["properties"]["start"] = firsttime
 		jd["features"][0]["properties"]["end"] = lasttime
 
-		datafile.write(json.dumps(jd, indent=4))
+		datafile.write(json.dumps(jd))
 		datafile.flush()
 		datafile.close()
 		os.remove(cachefilepath)
