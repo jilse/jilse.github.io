@@ -71,6 +71,7 @@ while True:
 		# Wait for a 'TPV' report and display the current time
 		if report['class'] == 'TPV':
 			if hasattr(report, 'time') and hasattr(report, 'lat') and  hasattr(report, 'lon'):
+				print report
 				lasttime = report.time
 				if firstrun == True:
 					firsttime = report.time
@@ -78,8 +79,13 @@ while True:
 					firstrun = False
 					
 				cachefile.write(str(round(report.lon, 5)) + ",")
-				cachefile.write(str(round(report.lat, 5)) + "\n")
+				cachefile.write(str(round(report.lat, 5)) + ",")
+				cachefile.write(str(report.time) + ",")
+				cachefile.write(str(report.speed) + "\n")
 				blink(1)
+		else:
+			blink(.25)
+			blink(1)
 	except KeyError:
 		pass
 	except KeyboardInterrupt:
@@ -97,20 +103,21 @@ while True:
 		cachefile.flush()
 		cachefile.close()
 		datafile = open(repopath + "sailtrack/" + timestr + ".json", 'w', 500)
-		f = open(repopath + "sailtracktemplate.json", 'r')
-		json_data = f.read()
-		f.close()
-		basetemplate = "{\"type\": \"FeatureCollection\",\"features\": ["+ json_data +"]}"
+		basetemplate = "{\"points\": []}"
 		jd = json.loads(basetemplate)
 		cachereader = open(cachefilepath, 'r').read().splitlines()
 
 		for line in cachereader:
-			jd["features"][0]["geometry"]["coordinates"].append([float(line.split(",")[0]),float(line.split(",")[1])])
-		jd["features"][0]["properties"]["powertype"] = "sail"
-		jd["features"][0]["properties"]["start"] = firsttime
-		jd["features"][0]["properties"]["end"] = lasttime
+			ar = line.split(",")
+			if len(ar) != 4:
+				continue
+			#[float(ar[0]),float(ar[1])]
+			jd["points"].append({'lon': float(ar[0]), 'lat': float(ar[1]), 'time': ar[2], 'speed': float(ar[3])})
+		#jd["features"][0]["properties"]["powertype"] = "sail"
+		#jd["features"][0]["properties"]["start"] = firsttime
+		#jd["features"][0]["properties"]["end"] = lasttime
 
-		datafile.write(json.dumps(jd))
+		datafile.write(json.dumps(jd, indent=4))
 		datafile.flush()
 		datafile.close()
 		os.remove(cachefilepath)

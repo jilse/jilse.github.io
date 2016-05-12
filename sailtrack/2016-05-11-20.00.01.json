@@ -1,1 +1,0 @@
-{"type": "FeatureCollection", "features": [{"geometry": {"type": "LineString", "coordinates": [[-92.09355, 46.85549], [-92.09355, 46.85549], [-92.09283, 46.85636], [-92.09305, 46.85601]]}, "type": "Feature", "properties": {"start": "2016-05-11T19:59:40.000Z", "powertype": "sail", "end": "2016-05-11T19:59:43.740Z"}}]}
