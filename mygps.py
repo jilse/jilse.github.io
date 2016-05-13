@@ -1,16 +1,13 @@
-import gps
-import time
+import gps 
+import time 
 import json
 import RPi.GPIO as GPIO
 import os
-GPIO.setmode(GPIO.BCM)
-GPIO.setup(4,GPIO.OUT)
-GPIO.output(4,False)
-GPIO.setup(18, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-repopath= "/home/pi/gitrepo/jilse.github.io/"
+import threading
+from gpspoll import *
 
 def writemdfile(lat, lon, fileitme):
-	targetfile = open(repopath + "_posts/SailTracks/"+time.strftime("%Y-%m-%d-Sailtrack-") + fileitme+".md", 'w')
+	targetfile = open(repopath + "_posts/sailtrack/"+time.strftime("%Y-%m-%d-Sailtrack-") + fileitme+".md", 'w')
 	targetfile.write("---\n")
 	targetfile.write("layout: track\n")
 	targetfile.write("title: sail track "+ fileitme +"\n")
@@ -32,16 +29,23 @@ def blink(wait):
 	time.sleep(wait)
 	return
 
+repopath= "/home/pi/gitrepo/jilse.github.io/"
+captureinterval = 10
 timestr = ""
-session = gps.gps("localhost", "2947")
-session.stream(gps.WATCH_ENABLE | gps.WATCH_NEWSTYLE)
 firstrun = True
 lasttime = ""
 firsttime = ""
 cachefilepath = ""
 
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(4,GPIO.OUT)
+GPIO.output(4,False)
+GPIO.setup(18, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+
 started = False
 pausecount = 0
+gpsp = GpsPoller()
+gpsp.start()
 while True:
 	
 	start_button_up = GPIO.input(18)
@@ -67,22 +71,29 @@ while True:
 		started = True
 		firstrun = True
 	try:
-		report = session.next()
-		# Wait for a 'TPV' report and display the current time
-		if report['class'] == 'TPV':
-			if hasattr(report, 'time') and hasattr(report, 'lat') and  hasattr(report, 'lon'):
-				print report
-				lasttime = report.time
-				if firstrun == True:
-					firsttime = report.time
-					writemdfile(report.lat, report.lon, timestr)
-					firstrun = False
-					
-				cachefile.write(str(round(report.lon, 5)) + ",")
-				cachefile.write(str(round(report.lat, 5)) + ",")
-				cachefile.write(str(report.time) + ",")
-				cachefile.write(str(report.speed) + "\n")
-				blink(1)
+		os.system('clear')
+		report = gpsp.get_current_value()
+		if report.keys()[0] == 'epx':
+			GPIO.output(4,True)
+			lasttime = report.time
+			if firstrun == True:
+				firsttime = report.time
+				writemdfile(report.lat, report.lon, timestr)
+				firstrun = False
+				
+			cachefile.write(str(round(report['lon'], 5)) + ",")
+			cachefile.write(str(round(report['lat'], 5)) + ",")
+			cachefile.write(str(report['time']) + ",")
+			cachefile.write(str(report['speed']) + "\n")
+			start_button_up = GPIO.input(18)
+			pausecount = 1
+			
+			while start_button_up == True and pausecount < captureinterval:
+				time.sleep(1)
+				start_button_up = GPIO.input(18)
+				pausecount+=1
+			GPIO.output(4,False)
+			time.sleep(1)
 		else:
 			blink(.25)
 			blink(.25)
@@ -111,11 +122,7 @@ while True:
 			ar = line.split(",")
 			if len(ar) != 4:
 				continue
-			#[float(ar[0]),float(ar[1])]
-			jd["points"].append({'lon': float(ar[0]), 'lat': float(ar[1]), 'time': ar[2], 'speed': float(ar[3])})
-		#jd["features"][0]["properties"]["powertype"] = "sail"
-		#jd["features"][0]["properties"]["start"] = firsttime
-		#jd["features"][0]["properties"]["end"] = lasttime
+			jd["points"].append({'lng': float(ar[0]), 'lat': float(ar[1]), 'time': ar[2], 'speed': float(ar[3])})
 
 		datafile.write(json.dumps(jd, indent=4))
 		datafile.flush()
