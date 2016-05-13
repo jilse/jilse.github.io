@@ -14,7 +14,7 @@ def writemdfile(lat, lon, fileitme):
 	targetfile.write("categories: sailtrack\n")
 	targetfile.write("date: " + time.strftime("%Y-%m-%d") + "\n")
 	targetfile.write("published: false\n")
-	targetfile.write("geo: " + fileitme + ".json\n")
+	targetfile.write("geo: " + fileitme + ".csv\n")
 	targetfile.write("geocenterlon: "+ str(lon) +"\n")
 	targetfile.write("geocenterlat: "+ str(lat) +"\n")
 	targetfile.write("mapzoom: 11\n")
@@ -30,7 +30,7 @@ def blink(wait):
 	return
 
 repopath= "/home/pi/gitrepo/jilse.github.io/"
-captureinterval = 10
+captureinterval = 5
 timestr = ""
 firstrun = True
 lasttime = ""
@@ -66,7 +66,7 @@ while True:
 			start_button_up = GPIO.input(18)
 			
 		timestr = time.strftime("%Y-%m-%d-%H.%M.%S")
-		cachefilepath = repopath + "sailtrack/" + timestr + "-cache.json"
+		cachefilepath = repopath + "sailtrack/" + timestr + ".csv"
 		cachefile = open(cachefilepath, 'w', 1)
 		started = True
 		firstrun = True
@@ -113,21 +113,6 @@ while True:
 	if closetrack == True:		
 		cachefile.flush()
 		cachefile.close()
-		datafile = open(repopath + "sailtrack/" + timestr + ".json", 'w', 500)
-		basetemplate = "{\"points\": []}"
-		jd = json.loads(basetemplate)
-		cachereader = open(cachefilepath, 'r').read().splitlines()
-
-		for line in cachereader:
-			ar = line.split(",")
-			if len(ar) != 4:
-				continue
-			jd["points"].append({'lng': float(ar[0]), 'lat': float(ar[1]), 'time': ar[2], 'speed': float(ar[3])})
-
-		datafile.write(json.dumps(jd, indent=4))
-		datafile.flush()
-		datafile.close()
-		os.remove(cachefilepath)
 		started = False
 GPIO.cleanup()
 
