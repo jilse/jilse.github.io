@@ -78,8 +78,8 @@
 				worker: true,
 				comments: false,
 				step: function(row) {
-					var lat = parseFloat(row.data[0][0]);
-					var lng = parseFloat(row.data[0][1]);
+					var lat = parseFloat(row.data[0][1]);
+					var lng = parseFloat(row.data[0][0]);
 					sailtrack.getPath().push({lat: function(){return lat;}, lng: function() {return lng;}});
 				},
 				complete: function(){
