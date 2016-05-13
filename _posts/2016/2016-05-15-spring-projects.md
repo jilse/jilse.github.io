@@ -40,6 +40,11 @@ patching up another old sail
 tools tools everywhere
 ![]({{ site.imagehost }}/2016/2016-05-04 19.37.30.jpg)
 
+----------
+
+projects aren't the only thing holding me back from sleeping aboard. It's cold!
+
+<iframe width="560" height="315" src="//www.youtube.com/embed/r1uVKpnleh8" frameborder="0"> </iframe>
 
 
 
