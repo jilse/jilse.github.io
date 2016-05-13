@@ -1,8 +1,0 @@
-{
-	"type": "Feature",
-	"properties": {"powertype":"sail", "start": "2016-05-10T04:19:49.000Z", "end": "2016-05-10T04:25:19.000Z"},
-	"geometry": {
-		"type": "LineString",
-		"coordinates": []
-	}
-}

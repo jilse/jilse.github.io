@@ -58,7 +58,7 @@ while True:
 		# wait for button release
 		start_button_up = GPIO.input(18)
 		while start_button_up == False:
-			blink(.25)
+			blink(.1)
 			start_button_up = GPIO.input(18)
 			
 		timestr = time.strftime("%Y-%m-%d-%H.%M.%S")
@@ -85,7 +85,7 @@ while True:
 				blink(1)
 		else:
 			blink(.25)
-			blink(1)
+			blink(.25)
 	except KeyError:
 		pass
 	except KeyboardInterrupt:
@@ -97,7 +97,7 @@ while True:
 	closetrack = start_button_up == False
 	
 	while start_button_up == False:
-			blink(.25)
+			blink(.1)
 			start_button_up = GPIO.input(18)
 	if closetrack == True:		
 		cachefile.flush()
