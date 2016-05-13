@@ -11,6 +11,7 @@
 			height: 400px;
 		}
 	</style>
+	<script src="{{site.url}}/assets/js/vendor/papaparse.min.js"></script>
 </head>
 <body id="page">
 
@@ -41,6 +42,7 @@
 
 
 <script>
+
 	hoursBetween = function( date1, date2 ) {
 		var one_hour=1000*60*60;
 		// Convert both dates to milliseconds
@@ -53,31 +55,47 @@
 	}
 
 	function initMap() {
-		var mapDiv = document.getElementById('map');
-		var map = new google.maps.Map(mapDiv, {
-			center: {lat: {{ page.geocenterlat }},
-			lng: {{ page.geocenterlon }}},
-			zoom: {{ page.mapzoom }}
+		$(document).ready(function() {
+			var mapDiv = document.getElementById('map');
+			var center = {lat: {{ page.geocenterlat }}, lng: {{ page.geocenterlon }} };
+			var map = new google.maps.Map(mapDiv, {center: center, zoom: {{ page.mapzoom }} });
+			var sailtrack = new google.maps.Polyline({
+				path: [center],
+				geodesic: true,
+				strokeColor: '#FF0000',
+				strokeOpacity: 1.0,
+				strokeWeight: 2
 			});
+			sailtrack.setMap(map);
 
-		var xhr = new XMLHttpRequest();
-		var u = '{{ site.url }}/sailtrack/{{ page.geo }}';
-		xhr.open('GET', u, true);
-		xhr.send();
-		xhr.onreadystatechange = processRequest;
-		function processRequest(e) {
-			if (xhr.readyState == 4 && xhr.status == 200) {
-				var response = JSON.parse(xhr.responseText);
-				var sailpath = new google.maps.Polyline({
-					path: response.points,
-					geodesic: true,
-					strokeColor: '#FF0000',
-					strokeOpacity: 1.0,
-					strokeWeight: 2
-				});
-				sailpath.setMap(map);
-			}
-		}
+			Papa.parse('{{ site.url }}/sailtrack/{{ page.geo }}', {
+				delimiter: "",	// auto-detect
+				newline: "",	// auto-detect
+				header: false,
+				dynamicTyping: false,
+				preview: 0,
+				encoding: "",
+				worker: true,
+				comments: false,
+				step: function(row) {
+					var lat = parseFloat(row.data[0][0]);
+					var lng = parseFloat(row.data[0][1]);
+					sailtrack.getPath().push({lat: function(){return lat;}, lng: function() {return lng;}});
+				},
+				complete: function(){
+				},
+				error: function(){
+				},
+				download: true,
+				skipEmptyLines: false,
+				chunk: undefined,
+				fastMode: undefined,
+				beforeFirstChunk: undefined,
+				withCredentials: undefined
+			});
+		});
+	}
+
 
 
 
@@ -95,7 +113,9 @@
 		//	infowindow.setPosition({lat: event.latLng.lat(), lng: event.latLng.lng()});
 		//	infowindow.open(map);
 		//});
-	}
+
+
+
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAMBODwxj1IeOT3xuCKn9k9l9-gQ5VW0Oo&callback=initMap"
 		async defer></script>
