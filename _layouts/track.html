@@ -60,7 +60,7 @@
 			var center = {lat: {{ page.geocenterlat }}, lng: {{ page.geocenterlon }} };
 			var map = new google.maps.Map(mapDiv, {center: center, zoom: {{ page.mapzoom }} });
 			var sailtrack = new google.maps.Polyline({
-				path: [center],
+				path: [],
 				geodesic: true,
 				strokeColor: '#FF0000',
 				strokeOpacity: 1.0,
@@ -80,7 +80,10 @@
 				step: function(row) {
 					var lat = parseFloat(row.data[0][1]);
 					var lng = parseFloat(row.data[0][0]);
-					sailtrack.getPath().push({lat: function(){return lat;}, lng: function() {return lng;}});
+					if(!isNaN(lat) && !isNaN(lat)){
+						console.log(lat,lng);
+						sailtrack.getPath().push({lat: function(){return lat;}, lng: function() {return lng;}});
+					}
 				},
 				complete: function(){
 				},
