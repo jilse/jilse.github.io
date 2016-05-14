@@ -1,10 +1,11 @@
 import gps 
-import time 
+from datetime import date, datetime, time, timedelta
 import json
 import RPi.GPIO as GPIO
 import os
 import threading
 from gpspoll import *
+
 
 def writemdfile(lat, lon, fileitme):
 	targetfile = open(repopath + "_posts/sailtrack/"+time.strftime("%Y-%m-%d-Sailtrack-") + fileitme+".md", 'w')
@@ -31,11 +32,7 @@ def blink(wait):
 
 repopath= "/home/pi/gitrepo/jilse.github.io/"
 captureinterval = 5
-timestr = ""
 firstrun = True
-lasttime = ""
-firsttime = ""
-cachefilepath = ""
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(4,GPIO.OUT)
@@ -46,10 +43,11 @@ started = False
 pausecount = 0
 gpsp = GpsPoller()
 gpsp.start()
+start_on_run = False
 while True:
 	
 	start_button_up = GPIO.input(18)
-	if started == False and start_button_up == True:
+	if started == False and start_button_up == True and start_on_run == False:
 		pausecount+=1
 		if(pausecount == 20):
 			pausecount = 0
@@ -63,11 +61,8 @@ while True:
 		start_button_up = GPIO.input(18)
 		while start_button_up == False:
 			blink(.1)
-			start_button_up = GPIO.input(18)
-			
-		timestr = time.strftime("%Y-%m-%d-%H.%M.%S")
-		cachefilepath = repopath + "sailtrack/" + timestr + ".csv"
-		cachefile = open(cachefilepath, 'w', 1)
+			start_button_up = GPIO.input(18)			
+		
 		started = True
 		firstrun = True
 	try:
@@ -77,8 +72,11 @@ while True:
 			GPIO.output(4,True)
 			lasttime = report.time
 			if firstrun == True:
-				firsttime = report.time
+				gpstime = time.strptime(report.time, "%Y-%m-%dT%H:%M:%S.%fZ")
+				timestr = time.strftime("%Y-%m-%d-%H.%M.%S", gpstime)
 				writemdfile(report.lat, report.lon, timestr)
+				cachefilepath = repopath + "sailtrack/" + timestr + ".csv"
+				cachefile = open(cachefilepath, 'w', 1)
 				firstrun = False
 				
 			cachefile.write(str(round(report['lon'], 5)) + ",")
