@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # Example using a character LCD plate.
 import time
-
+import threading
 import Adafruit_CharLCD as LCD
 
 def waitForRelease(button):
@@ -15,25 +15,44 @@ def drawMenu():
     lcd.set_cursor(0,1)
     if len(currentMenu) > (currentMenuIndex+1):
         lcd.message(" " + currentMenu[currentMenuIndex + 1].name)    
-def AnchorDistance():
-    return "perfectly placed"
+class AnchorDistance:
+    def __init__(self):
+        self.refreshRate = 3
+        self.counter = 0
+        self.action = None
+    def show(self):
+        self.counter = self.counter +1
+        return "reasons " + str(self.counter)
+
+class TrackStatus:
+    def __init__(self):
+        self.refreshRate = 0
+        self.trackState = "stopped"
+    def show(self):
+        return self.trackState
+    def action(self):
+        if self.trackState == "stopped":
+            self.trackState = "running"
+        else:
+            self.trackState = "stopped"
+        
 class NavItem:
-    def __init__(self, name, childItems, dataReport = None):
+    def __init__(self, name, childItems, configure = None):
         self.name = name
         self.childItems = childItems
-        self.dataReport = dataReport
+        self.configure = configure        
     
 lcd = LCD.Adafruit_CharLCDPlate()
 lcd.clear()
 
 menu = [];
 menu.append(NavItem("Anchor", [NavItem("Main Menu", menu),
-                               NavItem("Status", []), 
-                               NavItem("Distance From Anchor", [], AnchorDistance),
+                               NavItem("Status", [], TrackStatus()), 
+                               NavItem("Distance From Anchor", [], AnchorDistance()),
                                NavItem("Alarm Status", []),
                                NavItem("Upload Status", [])]))
 menu.append(NavItem("Track", [NavItem("main menu", menu),
-                               NavItem("Status", []),
+                               NavItem("Status", [], TrackStatus()),
                                NavItem("current speed", []),
                                NavItem("current position", []),
                                NavItem("max speed", [])]))
@@ -50,13 +69,43 @@ while True:
             currentMenu = currentMenu[currentMenuIndex].childItems
             currentMenuIndex = 0
             drawMenu()
-        elif currentMenu[currentMenuIndex].dataReport is not None:
+            waitForRelease(LCD.SELECT)
+        elif currentMenu[currentMenuIndex].configure is not None:
+            c = currentMenu[currentMenuIndex].configure
+            
             lcd.clear()
             lcd.set_cursor(0,0)
             lcd.message("-" + currentMenu[currentMenuIndex].name)
             lcd.set_cursor(0,1)
-            lcd.message(currentMenu[currentMenuIndex].dataReport())
-        waitForRelease(LCD.SELECT)
+            lcd.message(c.show())
+            waitForRelease(LCD.SELECT)
+            if c.refreshRate > 0:
+                while not(lcd.is_pressed(LCD.SELECT)):
+                    tevent = threading.Event()
+                    tevent.wait(timeout = c.refreshRate)
+                    lcd.clear()
+                    lcd.set_cursor(0,0)
+                    lcd.message("-" + currentMenu[currentMenuIndex].name)
+                    lcd.set_cursor(0,1)
+                    lcd.message(c.show())
+            if not c.action is None:
+                while True:
+                    if lcd.is_pressed(LCD.LEFT):
+                        c.action()
+                        waitForRelease(LCD.LEFT)
+                        lcd.clear()
+                        lcd.set_cursor(0,0)
+                        lcd.message("-" + currentMenu[currentMenuIndex].name)
+                        lcd.set_cursor(0,1)
+                        lcd.message(c.show())
+                        continue
+                    elif lcd.is_pressed(LCD.SELECT):
+                        break                    
+                
+            currentMenu = menu
+            currentMenuIndex = 0
+            drawMenu()
+            
     if lcd.is_pressed(LCD.LEFT):
         waitForRelease(LCD.LEFT)
     if lcd.is_pressed(LCD.RIGHT):
