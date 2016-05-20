@@ -24,7 +24,7 @@ class AnchorDistance:
         self.counter = self.counter +1
         return "reasons " + str(self.counter)
 
-class TrackStatus:
+class StatusBase:
     def __init__(self):
         self.refreshRate = 0
         self.trackState = "stopped"
@@ -32,9 +32,29 @@ class TrackStatus:
         return self.trackState
     def action(self):
         if self.trackState == "stopped":
+            self.run()
             self.trackState = "running"
         else:
+            self.stop()
             self.trackState = "stopped"
+
+class SailTrackStatus(StatusBase):
+    def __init__(self):
+        self.refreshRate = 0
+        self.trackState = "stopped"
+    def run(self):
+        print "run the gps tracker and log to website"
+    def stop(self):
+        print "stop the gps tracker"
+
+class AnchorWatchStatus(StatusBase):
+    def __init__(self):
+        self.refreshRate = 0
+        self.trackState = "stopped"
+    def run(self):
+        print "run the anchor watch"
+    def stop(self):
+        print "stop the anchor watch"        
         
 class NavItem:
     def __init__(self, name, childItems, configure = None):
@@ -47,15 +67,15 @@ lcd.clear()
 
 menu = [];
 menu.append(NavItem("Anchor", [NavItem("Main Menu", menu),
-                               NavItem("Status", [], TrackStatus()), 
+                               NavItem("Status", [], AnchorWatchStatus()), 
                                NavItem("Distance From Anchor", [], AnchorDistance()),
                                NavItem("Alarm Status", []),
                                NavItem("Upload Status", [])]))
-menu.append(NavItem("Track", [NavItem("main menu", menu),
-                               NavItem("Status", [], TrackStatus()),
-                               NavItem("current speed", []),
-                               NavItem("current position", []),
-                               NavItem("max speed", [])]))
+menu.append(NavItem("Track", [NavItem("Main Menu", menu),
+                               NavItem("Status", [], SailTrackStatus()),
+                               NavItem("Current Speed", []),
+                               NavItem("Current Position", []),
+                               NavItem("Max Speed", [])]))
 menu.append(NavItem("Battery Voltage", [NavItem("Main Menu", menu),
                                         NavItem("Current V.", []),
                                         NavItem("Upload Status", [])]))

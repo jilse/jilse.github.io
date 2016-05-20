@@ -23,12 +23,6 @@ def writemdfile(lat, lon, fileitme):
 	targetfile.flush()
 	targetfile.close()
 	return
-def blink(wait):
-	GPIO.output(4,True)
-	time.sleep(wait)
-	GPIO.output(4,False)
-	time.sleep(wait)
-	return
 
 repopath= "/home/pi/gitrepo/jilse.github.io/"
 captureinterval = 5
