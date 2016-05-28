@@ -25,10 +25,8 @@
 			</header>
 			<div id="map"></div>
 			<div id="mapdebug"></div>
+			<hr>
 			<div class="entry-content">
-
-
-
 				{{ content }}
 			</div><!-- /.entry-content -->
 		</div><!-- /.entry-wrapper -->
@@ -62,7 +60,7 @@
 
 			var mapDiv = document.getElementById('map');
 			var center = {lat: {{ page.geocenterlat }}, lng: {{ page.geocenterlon }} };
-			var map = new google.maps.Map(mapDiv, {center: center, zoom: {{ page.mapzoom }} });
+			var map = new google.maps.Map(mapDiv, { mapTypeId: google.maps.MapTypeId.SATELLITE, center: center, zoom: {{ page.mapzoom }} });
 
 			{% if page.published == false %}
 			console.log("mapdebugging enabled")
