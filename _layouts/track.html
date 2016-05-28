@@ -94,20 +94,21 @@
 				encoding: "",
 				worker: true,
 				comments: false,
-				step: function(row) {
-					var lat = parseFloat(row.data[0][1]);
-					var lng = parseFloat(row.data[0][0]);
+				step: undefined,
+				complete: function(results, file) {
+					console.log('complete csv download');
+					results.data.forEach(function(row){
+					var lat = parseFloat(row[1]);
+					var lng = parseFloat(row[0]);
 					if(!isNaN(lat) && !isNaN(lat)){
 						sailtrack.getPath().push({lat: function(){return lat;}, lng: function() {return lng;}});
 					}
-				},
-				complete: function(){
-
+					});
 				},
 				error: function(){
 				},
 				download: true,
-				skipEmptyLines: false,
+				skipEmptyLines: true,
 				chunk: undefined,
 				fastMode: undefined,
 				beforeFirstChunk: undefined,
