@@ -1,5 +1,5 @@
 url: http://localhost:4000
-imagehost: /images/HostedImages
+imagehost: http://localhost:4000/images/HostedImages
 # Site owner
 owner:
   name: Jeff Ilse dev

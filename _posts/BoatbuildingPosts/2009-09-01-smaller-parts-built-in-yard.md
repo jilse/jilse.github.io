@@ -6,8 +6,10 @@ modified:
 categories: boatbuilding
 excerpt: "If it's small enough to be built in my garage or yard it was. Here's the story of a back yard boat shop."
 tags: []
-image:
-  feature:
+image: 
+  ogimage: "/backyardbuild/IMG_5812.jpg"
+
+  
 date: 2009-09-01
 ---
 Since I was building the hulls indoors in my Uncle's shop 4 hours away from home, I decided to work in parallel on smaller parts that could be built in my garage. The big ones were of course the central cabin and the cross beams shown below, but there's a seemingly endless list of other small projects. Everything from rudders to hatches and battery boxes. I got some very strange looks from neighbors driving through the alley. It's hard to imagine the cabin as part of a boat if you're not familiar with the design. By itself, it looks like the top of a storm troopers helmet or some WWI tank.
