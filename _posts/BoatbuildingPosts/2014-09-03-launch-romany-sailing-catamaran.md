@@ -7,7 +7,7 @@ categories: boatbuilding
 excerpt: "Ready or not it's time to launch"
 tags: []
 image:
-  feature:
+  ogimage: "/launch/IMG_2144.JPG"
 date: 2014-09-03
 ---
 It came down to this: launch the boat as is and head down river or wait another year. F*** waiting. It was sprint time. We were literally attaching the netting to the boat while they were driving us toward the launch ramp. I spent about two weeks in the water at the marina finishing up some safety details before Ethan and I took off down river. There were a lot of cosmetic interior details that weren't finished, but it was good enough for us to go.  

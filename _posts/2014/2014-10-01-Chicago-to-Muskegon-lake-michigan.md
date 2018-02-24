@@ -6,7 +6,7 @@ categories: 2014-River
 excerpt: "We traded river current and barges for solitude and 6ft waves."
 tags: []
 image:
-  feature:
+  ogimage: "2014river/2014-10-09%2015.51.42.jpg"
 date: 2014-10-01
 ---
 

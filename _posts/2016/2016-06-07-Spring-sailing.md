@@ -8,6 +8,8 @@ geo: 2016-06-07-18.14.40.csv
 geocenterlon: -92.06287762207813
 geocenterlat: 46.741536740585204
 mapzoom: 12
+image:
+  ogimage: "2016/2016-06-05%2013.06.34.jpg"
 ---
 
 Above is the track from my most recent sail. I beat my way up the harbor in a lightish wind and flew the spinnaker for the first time on the lake side (see photo below).
