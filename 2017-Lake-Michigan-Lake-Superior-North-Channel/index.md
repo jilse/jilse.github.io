@@ -1,8 +1,10 @@
 ---
 layout: page
-title: The most miles I've done in a season
+title: We traveled around 1600nm this summer. 
 excerpt: ""
 search_omit: true
+image: 
+  feature: "2017/routemap.png"
 ---
 
 <ul class="post-list">
