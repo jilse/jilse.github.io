@@ -47,7 +47,10 @@
 		<hr>
 		{% for item in page.images-array %}
 		{{ item.label }}
+		<!--{{ forloop.index0 }}-->
+		
 		<img src="{{ site.imagehost }}/{{ item.path }}" />
+				
 		<hr>
 		{% endfor %}
 		{% endif%}

@@ -7,11 +7,11 @@ excerpt: It turns out that it's cold on Lake Superior in June
 published: true
 images-array:
  - path: 2017/2017-06-15 17.13.43.jpg
-   label: some stuff about this pic
+   label: It was a great day to start out with a tail wind and beautiful skies
  - path: 2017/2017-06-15 20.46.20.jpg
-   label: some stuff about this pic
+   label: I started later in the day and had a great sunset
  - path: 2017/2017-06-16 06.35.10.jpg
-   label: some stuff about this pic
+   label: I had planned to sail all night, but the wind died and I was only a couple miles from Sand Island, so I pulled in and slept a few hours
  - path: 2017/2017-06-16 14.46.23.jpg
    label: some stuff about this pic
  - path: 2017/2017-06-17 07.49.32.jpg
