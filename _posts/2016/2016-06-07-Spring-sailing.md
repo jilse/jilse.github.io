@@ -1,20 +1,14 @@
 ---
-layout: track
+layout: post
 title: bit of spring sailing
+excerpt: we're enjoying the boat close to home daysailing with friends and sailing the small boats with the DSSA 
 categories: 2016-LakeSuperior
 date: 2016-06-07
 published: true
-geo: 2016-06-07-18.14.40.csv
-geocenterlon: -92.06287762207813
-geocenterlat: 46.741536740585204
-mapzoom: 12
 image:
-  ogimage: "2016/2016-06-05%2013.06.34.jpg"
+  ogimage: "2016/2016-05-30 15.57.55.jpg"
 ---
 
-Above is the track from my most recent sail. I beat my way up the harbor in a lightish wind and flew the spinnaker for the first time on the lake side (see photo below).
-
------
 Summer has not yet made its appearance around here, but we've had a few nice spring days. We're currently keeping the boat at Barker's Island Marina in Superior, WI. We're going to stick around Duluth for a bit since Ethan is taking a sailing class from the [Duluth Superior Sailing Association](http://sailingforall.org/) in June, but after that's over, we'll set off to explore this end of Lake Superior as well as enjoy the Duluth area summer festivities.
 
 ------------
