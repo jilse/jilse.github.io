@@ -42,8 +42,17 @@
         {% if page.ads == true %}{% include ad-sidebar.html %}<!-- /.google-ads -->{% endif %}
       </footer>
       <div class="entry-content">
-        {{ content }}
-        {% if (site.owner.disqus-shortname and page.comments) or site.comments %}
+        {{ content }} 
+		{% if page.images-array: %}
+		<hr>
+		{% for item in page.images-array %}
+		{{ item.label }}
+		<img src="{{ site.imagehost }}/{{ item.path }}" />
+		<hr>
+		{% endfor %}
+		{% endif%}
+        
+		{% if (site.owner.disqus-shortname and page.comments) or site.comments %}
           <div id="disqus_thread"></div><!-- /#disqus_thread -->
           {% include disqus-comments.html %}
         {% endif %}
