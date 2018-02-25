@@ -1,4 +1,5 @@
 serve:
+cd /mnt/c/jeff/code/jilse.github.io
 bundle exec jekyll serve --config _config.yml,_config-dev.yml
 # So Simple Theme
 
