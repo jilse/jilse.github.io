@@ -6,7 +6,7 @@ excerpt: Beating my brains on the Mackinac Straights.
 date: 2017-06-28
 published: true
 image:
-  ogimage: "2016/2016-06-05%2013.06.34.jpg"
+  ogimage: "2017/2017-06-27 08.58.59.jpg"
 images-array:
  - path: 2017/2017-06-27 08.58.59.jpg
    label: Approaching the Mackinac bridge.

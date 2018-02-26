@@ -6,7 +6,7 @@ excerpt: Les Cheneaux Islands to wait out unfavorable winds
 date: 2017-06-21
 published: true
 image:
-  ogimage: "2016/2016-06-05%2013.06.34.jpg"
+  ogimage: "2017/2017-06-26 22.18.05.jpg"
 images-array:
  - path: 2017/2017-06-25 16.10.19.jpg
    label: Storm coming... in a matter of minutes it went from this.
@@ -15,7 +15,7 @@ images-array:
  - path: 2017/2017-06-25 18.02.22.jpg
    label: It cleared up as quickly as it arrived
  - path: 2017/2017-06-25 21.33.10.jpg
-   label: This was cove for a few days. It was rainy, but still so tranquil. 
+   label: This was my private cove for a few days. It was rainy, but still so tranquil. 
  - path: 2017/2017-06-26 22.18.05.jpg
    label: Even while underway this is my normal perch. I can see nearly all way round the boat while still being indoors. 
   

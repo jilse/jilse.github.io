@@ -6,7 +6,7 @@ excerpt: Down river on the big ship super highway
 date: 2017-06-21
 published: true
 image:
-  ogimage: "2016/2016-06-05%2013.06.34.jpg"
+  ogimage: "2017/2017-06-24 17.03.06.jpg"
 images-array:
  - path: 2017/2017-06-24 11.46.34.jpg
    label: George Kemp Marina in Sault Ste Marie is a must stop when coming through this area. There is no place to anchor and only the narrow river where the big ships pass. It's always nice to easily get to shore and walk around town, so I don't mind. Here you can see some ship traffic and my aft solar array.

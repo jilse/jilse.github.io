@@ -24,7 +24,8 @@ images-array:
    label: some stuff about this pic
  - path: 2017/2017-06-23 18.34.07.jpg
    label: some stuff about this pic
-
+image:
+ ogimage: 2017/2017-06-15 20.46.20.jpg
 ---
  
 It was early in the season (June 15) when I left, so that meant fog/cold on Lake Superior. I was in fog about 40 percent of the time while under way. The day I wanted to leave it was 40f and raining. I opted to stay at the dock and pack supplies away.
