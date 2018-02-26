@@ -2,7 +2,7 @@
 layout: post
 title: On to Grandma's party
 categories: 2017-NorthChannel
-excerpt: Fast fast passage across northern Lake Michigan
+excerpt: Fast fast passage across northern Lake Michigan. The boat knows the way to grandma's house.
 date: 2017-07-04
 published: true
 image:

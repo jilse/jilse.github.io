@@ -4,8 +4,11 @@ title: Duluth to the North Channel...and back.
 excerpt: ""
 search_omit: true
 image: 
-  feature: "2017/routemap.png"
+  feature: /2017/2017-06-25%2016.10.19.jpg
 ---
+
+![2017 map]({{ site.imagehost }}/2017/routemap.png "Route")
+
 The rough plan was for me to sail the boat to Escanaba, MI for my Grandma's 90th b-day party where Heather and Ethan would meet me and we'd sail back together taking a slight right turn at the North Channel for some exploring. It turns out that's exactly what happened and everything went roughly to plan. 
 <ul class="post-list">
 {% for post in site.categories.2017-NorthChannel reversed %} 

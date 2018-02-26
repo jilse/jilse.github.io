@@ -3,6 +3,8 @@ layout: page
 title: 
 excerpt: ""
 search_omit: true
+image:
+ feature: 2017/2017-07-27 13.50.23.jpg
 ---
 
 + ####[2017 Duluth to the North Channel](/2017-Lake-Michigan-Lake-Superior-North-Channel)

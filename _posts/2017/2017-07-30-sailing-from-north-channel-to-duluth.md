@@ -2,11 +2,11 @@
 layout: post
 title: Time to turn around and head home
 categories: 2017-NorthChannel
-excerpt: Fast fast passage across northern Lake Michigan
+excerpt: After the north channel, our schedule was dictated by getting to the apostle Islands. 
 date: 2017-07-30
 published: true
 image:
-  ogimage: "2016/2016-06-05%2013.06.34.jpg"
+  ogimage: 2017/2017-08-05 14.42.07.jpg
 images-array:
  - path: 2017/2017-08-02 18.15.52.jpg
    label: We sailed all day with the spinnaker up and the auto pilot steering. I like to go fast, but there's nothing like making a steady 6kts all day long. The boat has a very comfortable and stable motion. There's nothing like it.

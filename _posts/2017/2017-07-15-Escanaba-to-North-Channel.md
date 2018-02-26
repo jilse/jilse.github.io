@@ -6,7 +6,7 @@ excerpt: Heather and Ethan arrive. Let the vacationing begin!
 date: 2017-07-15
 published: true
 image:
-  ogimage: 2017/2017-07-27 13.50.23.jpg
+  ogimage: 2017/2017-07-27 13.50.23.jpg  
 images-array:
  - path: 2017/2017-07-21 17.20.41.jpg
    label: This was our first north channel anchorage and we were very excited to be there. The water was 70F and there was plenty of wildlife checking us out.
