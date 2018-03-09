@@ -1,6 +1,8 @@
 serve:
 cd /mnt/c/jeff/code/jilse.github.io
 bundle exec jekyll serve --config _config.yml,_config-dev.yml
+deploy from same folder 
+sh bob.sh
 # So Simple Theme
 
 Looking for a simple, responsive, theme for your Jekyll powered blog? Well look no further. Here be **So Simple Theme**, the followup to [**Minimal Mistakes**](http://mmistakes.github.io/minimal-mistakes/) -- by designer slash illustrator [Michael Rose](http://mademistakes.com).
