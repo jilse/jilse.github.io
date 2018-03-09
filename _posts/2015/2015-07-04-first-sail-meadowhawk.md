@@ -6,7 +6,7 @@ categories: 2015-MichiganToMinnesota
 excerpt: "Finally sailing and it feels amazing"
 tags: []
 image:
-  feature:
+  ogimage: "2015greatlakes/2015-07-03 16.49.25.jpg"
 date: 2015-07-04
 ---
 

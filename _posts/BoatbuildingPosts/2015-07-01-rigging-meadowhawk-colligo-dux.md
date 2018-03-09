@@ -7,7 +7,7 @@ categories: boatbuilding
 excerpt: "it was one of the more stressful projects, but I finally became a sailboat."
 tags: []
 image:
-  feature:
+  ogimage: "riggingpost/2015-06-17%2015.20.05.jpg"
 date: 2015-07-01
 ---
 

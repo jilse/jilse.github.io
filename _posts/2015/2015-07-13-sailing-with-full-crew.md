@@ -6,7 +6,7 @@ categories: 2015-MichiganToMinnesota
 excerpt: "I picked up heather and Ethan in Leland, MI for some fun around the dunes"
 tags: []
 image:
-  feature:
+  ogimage: "2015greatlakes/2015-07-16 14.00.18.jpg"
 date: 2015-07-13
 ---
 

@@ -6,7 +6,7 @@ categories: 2014-River
 excerpt: "Traveling on the river is a lot of work, but the scenery is amazing to take in at 8mph."
 tags: []
 image:
-  feature:
+  ogimage: "2014river/IMG_20140919_071813.jpg"
 date: 2014-09-15
 ---
 

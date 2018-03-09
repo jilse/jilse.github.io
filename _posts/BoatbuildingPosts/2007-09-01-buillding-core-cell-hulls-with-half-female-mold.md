@@ -7,7 +7,7 @@ categories: boatbuilding
 excerpt: "Building the hulls wasn't that hard, but I did have to learn a lot about large scale laminating"
 tags: []
 image:
-  feature:
+    ogimage: "hullbuild/DSC_1571.jpg"
 date: 2007-09-01
 ---
 I built the hulls from 12mm corecell and 2 layers of 400g/m2 +- 45 biax inside and out. I used Raka's 5:1 (highest strength and heat tolerance) epoxy for the hulls. I can hardly remember the reason, but I decided to build with a half female mold. Imagine taking an upright boat and cutting it in half lengthwise right down the centerline. You'd have 2 mirrored pieces. In the case of a catamaran, I had 4 hull halves. I brought them together and fitted the interior while they were still laying on the side. I built the round bilge(bottom) version of the boat. While it's a slightly faster boat and I like the small knuckle that does a nice job of deflecting spray, it took longer to build. It's one of those decisions that I regret since it probably added at least a full season to the build time. It's water under the <s>bridge</s> hull.

@@ -6,7 +6,7 @@ categories: 2014-River
 excerpt: "I promised we would just go to the gas dock and if it didn't go well, we turn around."
 tags: []
 image:
-  feature:
+  ogimage: "2014river/2014-09-15 15.55.19.jpg"
 date: 2014-09-15
 ---
 

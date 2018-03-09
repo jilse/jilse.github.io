@@ -6,7 +6,7 @@ categories: 2014-River
 excerpt: "Barges and locks are prominent features on the river. We had a lot to learn in how to safely navigate the traffic."
 tags: []
 image:
-  feature:
+  ogimage: "2014river/2014-09-22%2017.59.22.jpg"
 date: 2014-09-15
 ---
 

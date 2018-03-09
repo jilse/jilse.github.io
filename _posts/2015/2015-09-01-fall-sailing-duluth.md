@@ -6,7 +6,7 @@ categories: 2015-MichiganToMinnesota
 excerpt: "The big trip was done, but the sailing wasn't. Fall sailing on Lake Superior is awesome."
 tags: []
 image:
-  feature:
+  ogimage: "2015greatlakes/2015-09-17 18.54.50.jpg"
 date: 2015-09-01
 ---
 

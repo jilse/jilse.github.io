@@ -6,7 +6,7 @@ categories: boatbuilding
 excerpt: "A little maintenance with a bunch of improvements"
 tags: []
 image:
-  feature:
+  ogimage: "2016/2016-05-03 20.54.06.jpg"
 date: 2016-05-13
 published: true
 ---

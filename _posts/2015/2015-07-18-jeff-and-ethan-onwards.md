@@ -6,7 +6,7 @@ categories: 2015-MichiganToMinnesota
 excerpt: "Heather returned to Minneapolis while Ethan and I continued north by boat"
 tags: []
 image:
-  feature:
+  ogimage: "2015greatlakes/2015-07-19 12.59.43.jpg"
 date: 2015-07-18
 ---
 

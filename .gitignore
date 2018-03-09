@@ -8,3 +8,5 @@ node_modules
 .jekyll-metadata
 .idea
 *.pyc
+/.vs
+hostedimages
