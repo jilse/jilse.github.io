@@ -46,11 +46,13 @@
 		{% if page.images-array: %}
 		<hr>
 		{% for item in page.images-array %}
-		{{ item.label }}
+		{{ item.label }}<br>
 		<!--{{ forloop.index0 }}-->
-		
+		{% if item.video: %}
+		<iframe width="560" height="315" src="http://www.youtube.com/embed/ir0PokiMPHc" frameborder="0"> </iframe>
+		{% else %}
 		<img src="{{ site.imagehost }}/{{ item.path }}" />
-				
+		{% endif%}
 		<hr>
 		{% endfor %}
 		{% endif%}

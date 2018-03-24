@@ -22,6 +22,8 @@
 .entry-feature-image {
 	margin: 20px 0 0;
 	width: 100%;
+	z-index: -1;
+	position: relative;
 	@include media($medium) {
 		margin-top: -75px; /* move up to be overlapped by site logo */
 	}
@@ -94,6 +96,7 @@ span + .entry-title {
 
 .entry-wrapper {
 	@include outer-container;
+	max-width: 100%;
 	margin-top: 0;
 	margin-bottom: 3em;
 	padding-right: $gutter;
