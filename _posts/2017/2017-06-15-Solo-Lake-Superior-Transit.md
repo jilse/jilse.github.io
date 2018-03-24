@@ -13,17 +13,17 @@ images-array:
  - path: 2017/2017-06-16 06.35.10.jpg
    label: I had planned to sail all night, but the wind died and I was only a couple miles from Sand Island, so I pulled in and slept a few hours
  - path: 2017/2017-06-16 14.46.23.jpg
-   label: some stuff about this pic
+   label: Having AIS is handy. I was 20nm off shore and I knew an hour ahead of time that I was going to be right in the middle of these two giants. I adjusted 1/4 mile and was safely away from them.
  - path: 2017/2017-06-17 07.49.32.jpg
-   label: some stuff about this pic
+   label: Coming into Copper Harbor at the head of the Keweenaw Peninsula is never boring. This is just after sunrise and very little rest for a day and a half.
  - path: 2017/2017-06-19 07.50.50.jpg
-   label: some stuff about this pic
+   label: This was the strangest fog bank. I could see clearly in every direction for about half a mile and nothing past that. When this ship broke through, it seemed to come from nowhere. Once again, AIS was nice as I knew they were out there and was expecting them.
  - path: 2017/2017-06-20 09.50.58.jpg
-   label: some stuff about this pic
+   label: Grand Marais, MI is always a welcome rest with a well protected harbor and nothing else for 35nm in either direction.
  - path: 2017/2017-06-22 16.15.59.jpg
-   label: some stuff about this pic
+   label: Same goes for Whitefish point harbor of refuge. It's not far from where the Edmund Fitzgerald rests on the bottom. They were heading for the protection of this point when they went down.
  - path: 2017/2017-06-23 18.34.07.jpg
-   label: some stuff about this pic
+   label: The soo locks on the Canadian side. This is where I officially left Lake Superior for the St. Mary's river.
 image:
  ogimage: 2017/2017-06-15 20.46.20.jpg
 ---
